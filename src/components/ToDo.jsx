@@ -9,7 +9,7 @@ export default function TodoBoard() {
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [deleting, setDeleting] = useState(true);
-  const messages = ["Não deixe suas tarefas para depois", "O que você vai fazer hoje?","Algum plano em mente?"];
+  const messages = ["Não deixe suas tarefas para depois", "O que você vai fazer hoje?", "Algum plano em mente?"];
 
   useEffect(() => {
     const currentText = messages[textIndex];
@@ -49,33 +49,35 @@ export default function TodoBoard() {
   };
 
   return (
-    <div className="todo-container">
-      <h2 className="todo-title">
-        {displayedText}
-        <span className="cursor">|</span>
-      </h2>
+    <div className="background-wrapper">
+      <div className="todo-container">
+        <h2 className="todo-title">
+          {displayedText}
+          <span className="cursor">|</span>
+        </h2>
 
-      <div className="todo-input-wrapper">
-        <input
-          className="todo-input"
-          placeholder="Escreva uma nova tarefa..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && addTask()}
-        />
-        <button onClick={addTask} className="todo-add-btn">+</button>
+        <div className="todo-input-wrapper">
+          <input
+            className="todo-input"
+            placeholder="Escreva uma nova tarefa..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && addTask()}
+          />
+          <button onClick={addTask} className="todo-add-btn">+</button>
+        </div>
+
+        <ul className="todo-list">
+          {tasks.map(task => (
+            <li key={task.id} className="todo-item">
+              <span>{task.text}</span>
+              <button onClick={() => removeTask(task.id)} className="todo-delete-btn">
+                <BsTrash3 />
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      <ul className="todo-list">
-        {tasks.map(task => (
-          <li key={task.id} className="todo-item">
-            <span>{task.text}</span>
-            <button onClick={() => removeTask(task.id)} className="todo-delete-btn">
-              <BsTrash3 />
-            </button>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
