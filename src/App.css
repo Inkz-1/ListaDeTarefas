@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 
-html, body, #root, .background-wrapper {
-  margin: 0;
-  padding: 0;
+html,
+body {
   height: 100%;
   min-height: 100vh;
+  font-family: 'Caudex', serif;
+  overflow-x: hidden;
 }
 
 body {
@@ -14,29 +15,26 @@ body {
 
 
 .background-wrapper {
-  position: relative;
+  background: url('../../To-do-list/src/assets/backgroundnico.gif') center/cover no-repeat fixed;
   min-height: 100vh;
-  background-image: url('../../To-do-list/src/assets/backgroundnico.gif');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 2rem;
+  width: 100%;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: center;
+  padding: 2rem;
+}
+
+.todo-wrapper {
+  max-width: 100%;
+  width: 30rem;
 }
 
 .todo-container {
-  z-index: 1;
-  max-width: 30rem;
-  width: 100%;
   background: linear-gradient(145deg, #2e003e, #602097);
   border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.531);
-  color: #fff;
-  font-family: "Caudex", serif;
-  backdrop-filter: blur(8px);
   padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.531);
+  backdrop-filter: blur(8px);
+  color: #fff;
 }
 
 .todo-title {
@@ -125,6 +123,13 @@ body {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }

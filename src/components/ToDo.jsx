@@ -50,33 +50,35 @@ export default function TodoBoard() {
 
   return (
     <div className="background-wrapper">
-      <div className="todo-container">
-        <h2 className="todo-title">
-          {displayedText}
-          <span className="cursor">|</span>
-        </h2>
+      <div className="todo-wrapper">
+        <div className="todo-container">
+          <h2 className="todo-title">
+            {displayedText}
+            <span className="cursor">|</span>
+          </h2>
 
-        <div className="todo-input-wrapper">
-          <input
-            className="todo-input"
-            placeholder="Escreva uma nova tarefa..."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && addTask()}
-          />
-          <button onClick={addTask} className="todo-add-btn">+</button>
+          <div className="todo-input-wrapper">
+            <input
+              className="todo-input"
+              placeholder="Escreva uma nova tarefa..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && addTask()}
+            />
+            <button onClick={addTask} className="todo-add-btn">+</button>
+          </div>
+
+          <ul className="todo-list">
+            {tasks.map(task => (
+              <li key={task.id} className="todo-item">
+                <span>{task.text}</span>
+                <button onClick={() => removeTask(task.id)} className="todo-delete-btn">
+                  <BsTrash3 />
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        <ul className="todo-list">
-          {tasks.map(task => (
-            <li key={task.id} className="todo-item">
-              <span>{task.text}</span>
-              <button onClick={() => removeTask(task.id)} className="todo-delete-btn">
-                <BsTrash3 />
-              </button>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );
