@@ -1,27 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-html, body {
-  height: 100%;
-  min-height: 100vh;
+body, html {
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.background-wrapper {
+  position: relative;
+  min-height: 100vh;
   background-image: url('../../To-do-list/src/assets/backgroundnico.gif');
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
+  background-attachment: fixed;
+  padding: 2rem;
+  display: flex;
+  justify-content: flex-end; 
 }
 
 .todo-container {
-  width: 30rem;
-  margin: 6rem 2rem 0 auto;
-  padding: 2rem;
+  z-index: 1;
+  max-width: 30rem;
+  width: 100%;
   background: linear-gradient(145deg, #2e003e, #602097);
   border-radius: 1rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.531);
   color: #fff;
   font-family: "Caudex", serif;
   backdrop-filter: blur(8px);
+  padding: 2rem;
 }
 
 .todo-title {
